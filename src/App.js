@@ -6,19 +6,21 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [location, setLocation] = useState()
-  const [data, setData] = useState()
+  const [data, setData] = useState({})
 
   let getWeather = async (lat, long)=> {
     let res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&lang=pt&appid=${process.env.REACT_APP_API_KEY}`).then((response)=> {
       const res = response.data
-      console.log(res)
+      // console.log(res)
       setData(res)
     }).catch((error)=> {
       console.log(error.message)
     })
 
-    console.log(data)
+   return console.log(data)
   }
+
+  console.log(Object.keys(data || {}).length)
 
   useEffect(()=> {
     navigator.geolocation.getCurrentPosition((position)=> {
@@ -29,7 +31,7 @@ function App() {
 
   return ( 
     <div className="App">
-      <Forecast/>
+      <Forecast forecastData={data}/>
     </div>
   );
 }
