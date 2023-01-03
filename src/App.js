@@ -9,18 +9,16 @@ function App() {
   const [data, setData] = useState({})
 
   let getWeather = async (lat, long)=> {
-    let res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=pt&appid=${process.env.REACT_APP_API_KEY}`).then((response)=> {
+    let res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=pt_br&appid=${process.env.REACT_APP_API_KEY}`).then((response)=> {
       const res = response.data
       // console.log(res)
       setData(res)
     }).catch((error)=> {
       console.log(error.message)
     })
-
-   return console.log(data)
   }
 
-  console.log(Object.keys(data || {}).length)
+  console.log(Object.keys(data || {}).length, data)
 
   useEffect(()=> {
     navigator.geolocation.getCurrentPosition((position)=> {
