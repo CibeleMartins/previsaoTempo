@@ -14,7 +14,13 @@ const Forecast = ()=> {
     alignItems="center"
     justifyContent="center">
         <div className={style.forecast}>
-
+            <div>Clima de agora</div>
+            <div>temperatura atual</div>
+            <div>temperatura maxima</div>
+            <div>temperatura minima</div>
+            <div>Pressão</div>
+            <div>Umidade</div>
+            <div></div>
         </div>
     </Flex>
     )
