@@ -1,8 +1,9 @@
+import Forecast from '../src/Forecast/Forecast';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Forecast/>
     </div>
   );
 }
