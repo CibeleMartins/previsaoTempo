@@ -1,5 +1,22 @@
 .forecast {
+
     width: 60%;
-    height: 400px;
-    background-color: aqua;
+    height: 500px;
+    background: white;
+    background-size: 300% 300%;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    animation: slide-down 300ms ease-out forwards;
 }
+
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

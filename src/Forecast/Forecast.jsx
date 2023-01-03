@@ -8,12 +8,14 @@ const Forecast = ()=> {
     return (
 
     <Flex
-    w="100vh"
+    w="100vw"
     h="100vh"
-    alignItems="center">
-        <motion.div className={style.forecast}>
+    bg="black"
+    alignItems="center"
+    justifyContent="center">
+        <div className={style.forecast}>
 
-        </motion.div>
+        </div>
     </Flex>
     )
 }
