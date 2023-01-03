@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react"
-import {motion} from 'framer-motion';
+
 
 import style from './Forecast.module.css';
 
