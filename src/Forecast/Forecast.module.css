@@ -1,26 +1,25 @@
-.forecast {
 
-    width: 60%;
-    height: 500px;
-    background: white;
-    background-size: 300% 300%;
-    padding: 1.5rem;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    animation: slide-down 300ms ease-out forwards;
+.animate {
+
+  background: linear-gradient(45deg,rgba(43,108,176,1), rgba(66,153,225,1) , #FFFF);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
 }
 
-@keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-3rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes colors {
+
+  8% {
+    background-position: 0% 50%;
   }
 
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .climate {
   font-size: 50px;
@@ -35,7 +34,7 @@
 }
 
 .currentTemperature {
-  font-size: 150px;
+  font-size: 120px;
   z-index: 30;
   color: white;
 }

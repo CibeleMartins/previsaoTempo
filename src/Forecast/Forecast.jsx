@@ -23,6 +23,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
       minTemperature: 0,
       pressure: 0,
       humidity: 0,
+      icon: '',
       climateNow: "",
       region: ''
     },
@@ -40,6 +41,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
           pressure: forecastData.main.pressure,
           humidity: forecastData.main.humidity,
           climateNow: forecastData.weather.map((i) => i.description),
+          icon: forecastData.weather.map((i) => i.icon) ,
           region: forecastData.name
         },
       ]);
@@ -48,23 +50,14 @@ const Forecast = ({ forecastData, backgroundImage }) => {
 
   return (
     <VStack
-      _before={{
-        content: '""',
-          bgImage:
-            `url(https://images5.alphacoders.com/853/853198.jpg)`,
-          bgSize: "cover",
-          pos: "absolute",
-          top: 0,
-          right: 0,
-          left: 0,
-          bottom: 0,
-          opacity: 0.9
+    className={style.animate}
+    sx={{
+        background: 'linear-gradient(90deg, rgba(43,108,176,1) 10%, rgba(66,153,225,1) 90%)',
       }}
       w="100vw"
       h="100vh"
       justifyContent="space-between"
     >
-      {/* <div className={style.forecast}> */}
         {stateForecast.map((i) => {
           if (
             i.currentTemperature > 0 &&
@@ -73,7 +66,9 @@ const Forecast = ({ forecastData, backgroundImage }) => {
             i.pressure > 0 &&
             i.humidity > 0 &&
             i.currentTemperature &&
-            i.region.length > 0
+            i.region.length > 0 &&
+            i.icon.length > 0
+
           ) {
             const descriptionClimate = i.climateNow.toString().charAt(0).toUpperCase() + i.climateNow.toString().slice(1)
             return (
@@ -86,12 +81,20 @@ const Forecast = ({ forecastData, backgroundImage }) => {
                     <h1 className={style.climate}>Clima |</h1> <h1 className={style.region}>{i.region}</h1>
                 </HStack>
 
+              <HStack>
+
+                
+              </HStack>
                 <VStack
                 w="100%"
                 pl="45px"
                 h="300px"
                 alignItems="flex-start">
-                  <h2 className={style.descriptionClimate}>{descriptionClimate}</h2>
+                  <HStack>
+                    <h2 className={style.descriptionClimate}>{descriptionClimate}</h2>
+                    <img alt="icon" src={`http://openweathermap.org/img/wn/${i.icon}@2x.png`}/>
+                  </HStack>
+                 
                   <h1 className={style.currentTemperature}>{parseInt(i.currentTemperature) + " ºC"}</h1>
                 </VStack>
               </>
@@ -99,7 +102,6 @@ const Forecast = ({ forecastData, backgroundImage }) => {
           }
 
         })}
-      {/* </div> */}
     </VStack>
   );
 };
