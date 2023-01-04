@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Flex } from "@chakra-ui/react";
 
@@ -7,7 +8,7 @@ import { useEffect, useState } from "react";
 
 // na primeira requisicao o componente n recebe os dados ainda
 
-const Forecast = ({ forecastData }) => {
+const Forecast = ({ forecastData, backgroundImage }) => {
   const [stateForecast, setForecast] = useState([
     {
       currentTemperature: 0,
@@ -38,9 +39,21 @@ const Forecast = ({ forecastData }) => {
 
   return (
     <Flex
+      _before={{
+        content: '""',
+          bgImage:
+            `url(${backgroundImage})`,
+          bgSize: "cover",
+          pos: "absolute",
+          top: 0,
+          right: 0,
+          left: 0,
+          bottom: 0,
+          opacity: 0.9
+      }}
       w="100vw"
       h="100vh"
-      bg="black"
+      // bg="black"
       alignItems="center"
       justifyContent="center"
     >
@@ -65,6 +78,7 @@ const Forecast = ({ forecastData }) => {
               </>
             );
           }
+
         })}
       </div>
     </Flex>
