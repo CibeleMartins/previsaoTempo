@@ -2,12 +2,11 @@ import axios from "axios";
 import Forecast from "../src/Forecast/Forecast";
 import { useState, useEffect } from "react";
 
+
 function App() {
-  
 
   const [location, setLocation] = useState();
   const [data, setData] = useState({});
-  const [imageBackground, setImageBackground] = useState("");
 
   let getWeather = async (lat, long) => {
     let res = await axios
@@ -24,13 +23,14 @@ function App() {
       });
   };
 
-  console.log(Object.keys(data || {}).length, data);
+  // console.log(Object.keys(data || {}).length, data);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       getWeather(position.coords.latitude, position.coords.longitude);
       setLocation(true);
     });
+
   }, []);
 
   return (

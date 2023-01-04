@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Flex } from "@chakra-ui/react";
+import { Flex,HStack } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
@@ -9,18 +9,25 @@ import { useEffect, useState } from "react";
 // na primeira requisicao o componente n recebe os dados ainda
 
 const Forecast = ({ forecastData, backgroundImage }) => {
+
+  console.log(backgroundImage)
+  console.log(forecastData)
+
+
   const [stateForecast, setForecast] = useState([
     {
+      id: Math.random(parseInt()),
       currentTemperature: 0,
       maxTemperature: 0,
       minTemperature: 0,
       pressure: 0,
       humidity: 0,
       climateNow: "",
+      region: ''
     },
   ]);
-  console.log(Object.values(stateForecast).length);
-  console.log(stateForecast);
+  // console.log(Object.values(stateForecast).length);
+  // console.log(stateForecast);
 
   useEffect(() => {
     if (Object.keys(forecastData).length > 0) {
@@ -32,6 +39,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
           pressure: forecastData.main.pressure,
           humidity: forecastData.main.humidity,
           climateNow: forecastData.weather.map((i) => i.description),
+          region: forecastData.name
         },
       ]);
     }
@@ -42,7 +50,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
       _before={{
         content: '""',
           bgImage:
-            `url(${backgroundImage})`,
+            `url(https://images5.alphacoders.com/853/853198.jpg)`,
           bgSize: "cover",
           pos: "absolute",
           top: 0,
@@ -53,11 +61,8 @@ const Forecast = ({ forecastData, backgroundImage }) => {
       }}
       w="100vw"
       h="100vh"
-      // bg="black"
-      alignItems="center"
-      justifyContent="center"
     >
-      <div className={style.forecast}>
+      {/* <div className={style.forecast}> */}
         {stateForecast.map((i) => {
           if (
             i.currentTemperature > 0 &&
@@ -65,22 +70,24 @@ const Forecast = ({ forecastData, backgroundImage }) => {
             i.minTemperature > 0 &&
             i.pressure > 0 &&
             i.humidity > 0 &&
-            i.currentTemperature
+            i.currentTemperature &&
+            i.region.length > 0
           ) {
             return (
               <>
-                <div>Clima de agora: {forecastData.main.temp}</div>
-                <div>temperatura atual: {i.currentTemperature} </div>
-                <div>temperatura maxima: {i.maxTemperature}</div>
-                <div>temperatura minima: {i.minTemperature}</div>
-                <div>Pressão: {i.pressure}</div>
-                <div>Umidade: {i.humidity}</div>
+                <HStack
+                 p="45px"
+                 h="60px"
+                 w="100"
+                 alignItems="center">
+                    <h1 className={style.climate}>Clima |</h1> <h1 className={style.region}>{i.region}</h1>
+                </HStack>
               </>
             );
           }
 
         })}
-      </div>
+      {/* </div> */}
     </Flex>
   );
 };
