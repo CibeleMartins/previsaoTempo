@@ -33,3 +33,15 @@
   z-index: 30;
   color: white;
 }
+
+.currentTemperature {
+  font-size: 150px;
+  z-index: 30;
+  color: white;
+}
+
+.descriptionClimate {
+  font-size: 40px;
+  z-index: 30;
+  color: white;
+}

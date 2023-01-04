@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Flex,HStack } from "@chakra-ui/react";
+import { Flex,HStack, VStack } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 
 const Forecast = ({ forecastData, backgroundImage }) => {
 
-  console.log(backgroundImage)
+  // console.log(backgroundImage)
   console.log(forecastData)
+
 
 
   const [stateForecast, setForecast] = useState([
@@ -46,7 +47,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
   }, [forecastData]);
 
   return (
-    <Flex
+    <VStack
       _before={{
         content: '""',
           bgImage:
@@ -61,6 +62,7 @@ const Forecast = ({ forecastData, backgroundImage }) => {
       }}
       w="100vw"
       h="100vh"
+      justifyContent="space-between"
     >
       {/* <div className={style.forecast}> */}
         {stateForecast.map((i) => {
@@ -73,22 +75,32 @@ const Forecast = ({ forecastData, backgroundImage }) => {
             i.currentTemperature &&
             i.region.length > 0
           ) {
+            const descriptionClimate = i.climateNow.toString().charAt(0).toUpperCase() + i.climateNow.toString().slice(1)
             return (
               <>
                 <HStack
                  p="45px"
                  h="60px"
-                 w="100"
-                 alignItems="center">
+                 w="100%"
+                 justifyContent="flex-start">
                     <h1 className={style.climate}>Clima |</h1> <h1 className={style.region}>{i.region}</h1>
                 </HStack>
+
+                <VStack
+                w="100%"
+                pl="45px"
+                h="300px"
+                alignItems="flex-start">
+                  <h2 className={style.descriptionClimate}>{descriptionClimate}</h2>
+                  <h1 className={style.currentTemperature}>{parseInt(i.currentTemperature) + " ºC"}</h1>
+                </VStack>
               </>
             );
           }
 
         })}
       {/* </div> */}
-    </Flex>
+    </VStack>
   );
 };
 
