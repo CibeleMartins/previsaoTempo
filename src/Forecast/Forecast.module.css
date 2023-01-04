@@ -44,3 +44,14 @@
   z-index: 30;
   color: white;
 }
+
+.details {
+
+  font-size: 40px;
+  z-index: 30;
+  color: white;
+  width: 60%;
+}
+#image {
+  width: 5%;
+}

@@ -1,14 +1,14 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { Flex, HStack, VStack } from "@chakra-ui/react";
+
+import { HStack, VStack } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
 import { useEffect, useState } from "react";
 
-// na primeira requisicao o componente n recebe os dados ainda
+import wind from '../assets/wind.png'
+import waterDrop from '../assets/waterDrop.png'
 
-const Forecast = ({ forecastData, backgroundImage }) => {
+const Forecast = ({ forecastData}) => {
   // console.log(backgroundImage)
   console.log(forecastData);
 
@@ -93,15 +93,14 @@ const Forecast = ({ forecastData, backgroundImage }) => {
                     {parseInt(i.currentTemperature) + " ºC"}
                   </h1>
                 </VStack>
-                <VStack w="20%" h="300px">
-                  <HStack>
-                    <img /> <h3>{parseFloat(i.maxTemperature) + " ºC"}</h3>
+                <VStack w="30%" h="300px" justifyContent="flex-end" alignItems="flex-end" >
+                  <HStack
+                   w="90%">
+                    <img id={style.image} alt="humidity" src={waterDrop} /> <h3 className={style.details}>{i.humidity + "%"}</h3>
                   </HStack>
-                  <HStack>
-                    <img /> <h3>{i.humidity + "%"}</h3>
-                  </HStack>
-                  <HStack>
-                    <img /> <h3>{Math.max(i.windSpeed) + "Km/h"}</h3>
+                  <HStack
+                   w="90%">
+                    <img id={style.image} alt="wind" src={wind} /> <h3 className={style.details}>{Math.max(i.windSpeed) + "Km/h"}</h3>
                   </HStack>
                 </VStack>
               </HStack>
