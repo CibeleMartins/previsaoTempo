@@ -1,6 +1,6 @@
 import axios from "axios";
 import Forecast from "../src/Forecast/Forecast";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect} from "react";
 
 function App() {
   const [location, setLocation] = useState();
