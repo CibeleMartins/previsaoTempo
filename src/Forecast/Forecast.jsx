@@ -1,4 +1,4 @@
-import { HStack, VStack } from "@chakra-ui/react";
+import { HStack, VStack, Text } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
@@ -9,8 +9,12 @@ import waterDrop from "../assets/waterDrop.png";
 
 const Forecast = ({ forecastData }) => {
   return <VStack w="100%" h="100vh" className={style.animate}>
-    <HStack>
-      Clima Regiao
+    <HStack
+    w="100%"
+    h="20vh"
+    alignItems="center">
+      <h1 style={{paddingLeft: '25px'}} className={style.mainTitle}>Clima</h1> <h1 className={style.mainTitle}>|</h1>
+      <h3 className={style.region}>Regiao</h3>
     </HStack>
     <HStack>
       <VStack>

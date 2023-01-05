@@ -6,6 +6,18 @@
   animation: colors 15s ease infinite;
 }
 
+.mainTitle{
+  font-size: 50px;
+  color: antiquewhite;
+}
+
+.region {
+  font-size: 37px;
+  width: 50%;
+  color: antiquewhite;
+  padding-top: 10px;
+}
+
 @keyframes colors {
 
   8% {
