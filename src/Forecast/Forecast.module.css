@@ -29,6 +29,13 @@
   font-size: 100px;
   color: antiquewhite;
 }
+.humidityImage {
+  width: 50px;
+}
+
+.windImage {
+  width: 50px;
+}
 
 @keyframes colors {
 
