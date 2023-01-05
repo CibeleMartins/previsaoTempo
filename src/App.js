@@ -17,7 +17,7 @@ function App() {
   });
 
   let getWeather = async (lat, long) => {
-    let res = await axios
+    await axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&lang=pt_br&appid=${process.env.REACT_APP_API_KEY}`
       )

@@ -21,37 +21,3 @@
   }
 }
 
-.climate {
-  font-size: 50px;
-  z-index: 30;
-  color: white;
-}
-
-.region {
-  font-size: 40px;
-  z-index: 30;
-  color: white;
-}
-
-.currentTemperature {
-  font-size: 120px;
-  z-index: 30;
-  color: white;
-}
-
-.descriptionClimate {
-  font-size: 40px;
-  z-index: 30;
-  color: white;
-}
-
-.details {
-
-  font-size: 40px;
-  z-index: 30;
-  color: white;
-  width: 60%;
-}
-#image {
-  width: 5%;
-}
