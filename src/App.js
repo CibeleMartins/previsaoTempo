@@ -25,7 +25,7 @@ function App() {
         const res = response.data;
         console.log(res)
         if (Object.keys(res).length > 0) {
-          setData([
+          setData(
             {
               currentTemperature: res.main.temp,
               maxTemperature: res.main.temp_max,
@@ -36,7 +36,7 @@ function App() {
               icon: res.weather.map((i) => i.icon),
               region: res.name,
             },
-          ]);
+          );
         }
       })
       .catch((error) => {
