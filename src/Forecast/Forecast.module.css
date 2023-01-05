@@ -30,11 +30,16 @@
   color: antiquewhite;
 }
 .humidityImage {
-  width: 50px;
+  width: 30%;
 }
 
 .windImage {
-  width: 50px;
+  width: 30%;
+}
+
+#details {
+  font-size: 120%;
+  color: antiquewhite
 }
 
 @keyframes colors {

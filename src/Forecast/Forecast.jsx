@@ -26,13 +26,13 @@ const Forecast = ({ forecastData }) => {
       className={style.animate}
     >
       <HStack w="100%" h="20vh" alignItems="center">
-        <h1 style={{ paddingLeft: "25px" }} className={style.mainTitle}>
+        <h1 style={{ paddingLeft: "5%" }} className={style.mainTitle}>
           Clima
         </h1>{" "}
         <h1 className={style.mainTitle}>|</h1>
         <h3 className={style.region}>{forecastData.region}</h3>
       </HStack>
-      <HStack w="100%" bg="black" h="40vh">
+      <HStack w="100%" h="40vh" justifyContent="space-between">
         <VStack w="50%">
           <HStack w="100%" pl="10%">
             <h2 className={style.description}>{descriptionClimate}</h2>
@@ -45,14 +45,18 @@ const Forecast = ({ forecastData }) => {
           <h1 className={style.temperature}>{currentTemp}</h1>
         </VStack>
         <VStack
-        w="50%">
-          <HStack>
+        pr="5%"
+        w="50%"
+        alignItems="flex-end">
+          <HStack
+          w="25%">
             <img alt="humidity" className={style.humidityImage} src={waterDrop}/>
-            <h1>{humidity}</h1>
+            <h1 id={style.details}>{humidity}</h1>
           </HStack>
-          <HStack>
+          <HStack
+           w="25%">
             <img alt="wind" className={style.windImage} src={wind}/>
-            <h1>{windSpeed}</h1>
+            <h1 id={style.details}>{windSpeed}</h1>
           </HStack>
         </VStack>
       </HStack>
