@@ -9,10 +9,12 @@ import waterDrop from "../assets/waterDrop.png";
 
 const Forecast = ({ forecastData }) => {
 
-
+console.log(forecastData)
 
   const descriptionClimate = forecastData.climateNow.toString().charAt(0).toUpperCase() + forecastData.climateNow.toString().slice(1)
   const currentTemp = Math.round(forecastData.currentTemperature) + " °C"
+  const icon = `http://openweathermap.org/img/wn/${forecastData.icon[0]}@2x.png`
+
 
   return (<VStack justifyContent="space-between" w="100%" h="100vh" className={style.animate}>
     <HStack
@@ -32,7 +34,7 @@ const Forecast = ({ forecastData }) => {
         w="100%"
         pl="10%">
           <h2 className={style.description}>{descriptionClimate}</h2>
-          <img className={style.iconDescription} alt="temperatureDescription"/>
+          <img src={icon} className={style.iconDescription} alt="temperatureDescription"/>
         </HStack>
         <h1 className={style.temperature}>{currentTemp}</h1>
       </VStack>
