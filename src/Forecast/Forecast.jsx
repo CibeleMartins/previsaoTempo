@@ -2,8 +2,6 @@ import { HStack, VStack, Skeleton, Text } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
-import { useEffect, useState } from "react";
-
 import wind from "../assets/wind.png";
 import waterDrop from "../assets/waterDrop.png";
 
@@ -33,8 +31,8 @@ const Forecast = ({ forecastData }) => {
         <Text fontSize={['20px', '30px', '37px','37px','37px','37px']} className={style.region}>{forecastData.region}</Text>
       </HStack>
 
-      <HStack w="100%" h="50vh" justifyContent="space-between">
-        <VStack w={["100%","100%","50%","50%","50%","50%"]}>
+      <HStack w="100%" h={['30vh', '40vh', '50vh', '50vh', '50vh', '50vh']} justifyContent="space-between" alignItems="center">
+        <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
           <HStack w="100%" pl="10%">
             <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
             <img
@@ -51,16 +49,17 @@ const Forecast = ({ forecastData }) => {
         w="50%"
         h={['20vh', '20vh', '27vh', '27vh', '27vh', '27vh']}
         justifyContent={['flex-end', 'flex-end','flex-end','flex-end','flex-end','flex-end']}
-        alignItems={['flex-start', 'flex-start', 'flex-end', 'flex-end', 'flex-end', 'flex-end']}>
+        alignItems={['flex-start', 'flex-start', 'flex-end', 'flex-end', 'flex-end', 'flex-end']}
+        alignContent="center">
           <HStack
           w="25%">
             <img alt="humidity" className={style.humidityImage} src={waterDrop}/>
-            <Text fontSize={['20px']} id={style.details}>{humidity}</Text>
+            <Text fontSize={'20px'} id={style.details}>{humidity}</Text>
           </HStack>
           <HStack
            w="25%">
             <img alt="wind" className={style.windImage} src={wind}/>
-            <Text id={style.details}>{windSpeed}</Text>
+            <Text fontSize={'20px'} id={style.details}>{windSpeed}</Text>
           </HStack>
         </VStack>
       </HStack>
