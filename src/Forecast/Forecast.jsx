@@ -54,12 +54,12 @@ const Forecast = ({ forecastData }) => {
           <HStack
           w="25%">
             <img alt="humidity" className={style.humidityImage} src={waterDrop}/>
-            <Text fontSize={'20px'} id={style.details}>{humidity}</Text>
+            <Text fontSize={['10px','15px','20px','20px','20px','20px']} id={style.details}>{humidity}</Text>
           </HStack>
           <HStack
            w="25%">
             <img alt="wind" className={style.windImage} src={wind}/>
-            <Text fontSize={'20px'} id={style.details}>{windSpeed}</Text>
+            <Text fontSize={['10px','15px','20px','20px','20px','20px']} id={style.details}>{windSpeed}</Text>
           </HStack>
         </VStack>
       </HStack>
