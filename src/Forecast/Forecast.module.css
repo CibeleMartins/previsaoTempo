@@ -20,23 +20,23 @@
 }
 
 .mainTitle{
-  color: antiquewhite;
+  color: white;
 }
 
 .region {
-  color: antiquewhite;
+  color: white;
   padding-top: 10px;
 }
 
 .description {
   white-space: nowrap;
-  color: antiquewhite;
+  color: white;
 }
 
 .temperature {
   padding-left: 10%;
   width: 100%;
-  color: antiquewhite;
+  color: white;
 }
 .humidityImage {
   width: 30px;
@@ -47,7 +47,7 @@
 }
 
 #details {
-  color: antiquewhite;
+  color: white;
   white-space: nowrap;
 }
 .iconDescription {
