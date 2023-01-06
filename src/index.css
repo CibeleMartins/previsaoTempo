@@ -13,3 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.animateFeedback {
+  background: linear-gradient(45deg,rgba(43,108,176,1), rgba(66,153,225,1) , #FFFF);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+}

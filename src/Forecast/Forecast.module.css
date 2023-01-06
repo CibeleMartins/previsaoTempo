@@ -7,12 +7,10 @@
 }
 
 .mainTitle{
-  font-size: 50px;
   color: antiquewhite;
 }
 
 .region {
-  font-size: 37px;
   color: antiquewhite;
   padding-top: 10px;
 }
@@ -20,13 +18,11 @@
 .description {
   white-space: nowrap;
   color: antiquewhite;
-  font-size: 40px;
 }
 
 .temperature {
   padding-left: 10%;
   width: 100%;
-  font-size: 100px;
   color: antiquewhite;
 }
 .humidityImage {
