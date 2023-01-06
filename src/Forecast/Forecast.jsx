@@ -23,7 +23,7 @@ const Forecast = ({ forecastData }) => {
       h="100vh"
       className={style.animate}
     >
-      <HStack w="100%" h="20vh" alignItems="center">
+      <HStack w="100%" h={["10vh", "10vh","20vh","20vh","20vh","20vh"]} alignItems="center">
         <Text fontSize={['30px', '40px', '50px','50px','50px','50px']} style={{ paddingLeft: "5%" }} className={style.mainTitle}>
           Clima |
         </Text>
