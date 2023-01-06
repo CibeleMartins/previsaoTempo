@@ -2,7 +2,7 @@
 
 <br />
 <p align="center">
-    <img src='./src/assets/cemonstração.mov' alt="Logo" width="200">
+    <img src='./src/assets/demonstração.mov' alt="Logo" width="200">
 
   <h3 align="center"></h3>
  <br />
@@ -31,7 +31,7 @@ na qual fosse possível visualizar o clima atual de acordo com a localização g
 ## Conhecimentos Praticados
 
 ✔ React Js <br>
-✔ Open Weatehr API <br>
+✔ Open Weather API [link](https://openweathermap.org/api) <br>
 ✔ Chakra UI<br>
 ✔ Axios <br>
 ✔ Meteocons <br>
