@@ -1,9 +1,9 @@
-import { HStack, VStack, Skeleton, Text } from "@chakra-ui/react";
+import { HStack, VStack, Skeleton, Skeleton, Text } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 
-import wind from "../assets/wind.png";
-import waterDrop from "../assets/waterDrop.png";
+import wind from "../assets/wind.svg";
+import waterDrop from "../assets/raindrop.svg";
 
 const Forecast = ({ forecastData }) => {
   console.log(forecastData);
