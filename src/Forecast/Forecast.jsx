@@ -34,7 +34,7 @@ console.log(forecastData)
       className={style.animate}
     >
       <HStack w="100%" h={["10vh", "10vh","20vh","20vh","20vh","20vh"]} alignItems="center">
-        <Text fontSize={['30px', '40px', '50px','50px','50px','50px']} style={{ paddingLeft: "5%" }} className={style.mainTitle}>
+        <Text fontSize={['30px', '40px', '50px','50px','50px','50px']} style={{ paddingLeft: "20px" }} className={style.mainTitle}>
           Clima |
         </Text>
 
@@ -42,32 +42,32 @@ console.log(forecastData)
       </HStack>
 
       <HStack w="100%" h={['30vh', '40vh', '50vh', '50vh', '50vh', '50vh']} justifyContent="space-between" alignItems="center">
-        <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
-          <HStack w="100%" pl="10%">
-            <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
-            <Icon hour={hour} climateDescription={descriptionClimate} className={style.windImage}/>
+        <VStack w={"50%"} h={['28vh', '35vh','35vh','35vh','35vh','35vh']} justifyContent="flex-end" alignItems="center">
+          <HStack w="100%" pl="40px">
+            <Text fontSize={['20px','15px','20px','40px','40px','40px']} className={style.description}>{descriptionClimate} </Text>
+            <Icon hour={hour} climateDescription={descriptionClimate} className={style.iconDescription}/>
           </HStack>
-          <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
+          <Text fontSize={['40px', '60px', '80px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>
 
-        {/* <VStack
-        pr="5%"
+        <VStack
+        pr={["40px", '100px', "80px","40px","40px","40px"]}
         w="50%"
-        h={['20vh', '20vh', '27vh', '27vh', '27vh', '27vh']}
+        h={['27vh', '27vh', '30vh', '27vh', '27vh', '27vh']}
         justifyContent={['flex-end', 'flex-end','flex-end','flex-end','flex-end','flex-end']}
-        alignItems={['flex-start', 'flex-start', 'flex-end', 'flex-end', 'flex-end', 'flex-end']}
+        alignItems={['center', 'flex-end', 'flex-end', 'flex-end', 'flex-end', 'flex-end']}
         alignContent="center">
           <HStack
           w="25%">
             <img alt="humidity" className={style.humidityImage} src={waterDrop}/>
-            <Text fontSize={['10px','15px','20px','20px','20px','20px']} id={style.details}>{humidity}</Text>
+            <Text fontSize={['100%','15px','20px','20px','20px','20px']} id={style.details}>{humidity}</Text>
           </HStack>
           <HStack
            w="25%">
             <img alt="wind" className={style.windImage} src={wind}/>
-            <Text fontSize={['10px','15px','20px','20px','20px','20px']} id={style.details}>{windSpeed}</Text>
+            <Text fontSize={['100%','15px','20px','20px','20px','20px']} id={style.details}>{windSpeed}</Text>
           </HStack>
-        </VStack> */}
+        </VStack>
       </HStack>
     </VStack>
     </>

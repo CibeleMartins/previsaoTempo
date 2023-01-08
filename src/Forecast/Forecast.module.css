@@ -31,12 +31,13 @@
 }
 
 .description {
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  padding-left: 2px;
   color: white;
 }
 
 .temperature {
-  padding-left: 10%;
+  padding-left: 40px;
   width: 100%;
   color: white;
 }
@@ -53,7 +54,7 @@
   white-space: nowrap;
 }
 .iconDescription {
-  width: 50px;
+  width: 20%;
 }
 @keyframes colors {
 
