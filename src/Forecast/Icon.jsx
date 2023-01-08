@@ -49,7 +49,7 @@ const nightIcons = [
 
 const Icon = ({ climateDescription, className, hour }) => {
 
-    const descriptionClimate = climateDescription.toLowerCase().replace(' ', '')
+    const descriptionClimate = climateDescription.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(' ', '')
     console.log(descriptionClimate)
     // descricao do clima se espacos e mnusculo
     if (hour <= 18) {
@@ -58,6 +58,15 @@ const Icon = ({ climateDescription, className, hour }) => {
         let iconEqualDescription = ''
 
        const iconCorrect = dayIcons.map((i)=> i.toLowerCase().includes(descriptionClimate) ? iconEqualDescription = i : null)
+
+        return (
+            <img alt="descriptionIcon" className={className} src={iconEqualDescription} />
+        )
+    } else {
+
+        let iconEqualDescription = ''
+
+        const iconCorrect = nightIcons.map((i)=> i.toLowerCase().includes(descriptionClimate) ? iconEqualDescription = i : null)
 
         return (
             <img alt="descriptionIcon" className={className} src={iconEqualDescription} />
