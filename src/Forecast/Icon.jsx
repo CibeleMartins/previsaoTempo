@@ -46,18 +46,23 @@ const nightIcons = [
   nevoaNoite,
 ];
 
-dayIcons.map((i) => {
-  if (i.includes("nublado")) {
-    return console.log(i);
-  }
-});
 
-const Icon = ({ climateDescription, className }) => {
-  if (climateDescription.toLowerCase() === "nublado") {
-    return <img className={className} alt="nublado" src={nevoaNoite} />;
-  } else if (climateDescription.toLowerCase() === "céu limpo") {
-    return console.log("n deu certo");
-  }
+const Icon = ({ climateDescription, className, hour }) => {
+
+    const descriptionClimate = climateDescription.toLowerCase().replace(' ', '')
+    console.log(descriptionClimate)
+    // descricao do clima se espacos e mnusculo
+    if (hour <= 18) {
+        // se o horario for anets da 18h 
+        
+        let iconEqualDescription = ''
+
+       const iconCorrect = dayIcons.map((i)=> i.toLowerCase().includes(descriptionClimate) ? iconEqualDescription = i : null)
+
+        return (
+            <img alt="descriptionIcon" className={className} src={iconEqualDescription} />
+        )
+    }
 };
 
 export default Icon;

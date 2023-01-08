@@ -17,6 +17,8 @@ console.log(forecastData)
   const icon = `http://openweathermap.org/img/wn/${forecastData.icon[0]}@2x.png`;
   const humidity = forecastData.humidity + " %"
   const windSpeed = forecastData.windSpeed + " Km/h"
+  const hour = new Date().getHours()
+
 
   return (
     <VStack
@@ -37,7 +39,7 @@ console.log(forecastData)
         <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
           <HStack w="100%" pl="10%">
             <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
-            <Icon climateDescription={descriptionClimate} className={style.windImage}/>
+            <Icon hour={hour} climateDescription={descriptionClimate} className={style.windImage}/>
           </HStack>
           <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>

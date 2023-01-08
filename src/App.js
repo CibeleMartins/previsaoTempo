@@ -50,9 +50,6 @@ function App() {
     navigator.geolocation.getCurrentPosition((position) => {
       getWeather(position.coords.latitude, position.coords.longitude);
       setLocation(true);
-      const hour = new Date().getHours()
-    
-   
   
     });
 
