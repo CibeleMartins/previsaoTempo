@@ -1,12 +1,14 @@
 import { HStack, VStack, Skeleton, Text } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
+import Icon from "./Icon";
 
 import wind from "../assets/wind.svg";
 import waterDrop from "../assets/raindrop.svg";
 
+
 const Forecast = ({ forecastData }) => {
-  console.log(forecastData)
+console.log(forecastData)
 
   const descriptionClimate =
     forecastData.climateNow.toString().charAt(0).toUpperCase() +
@@ -35,11 +37,7 @@ const Forecast = ({ forecastData }) => {
         <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
           <HStack w="100%" pl="10%">
             <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
-            <img
-              src={icon}
-              className={style.iconDescription}
-              alt="temperatureDescription"
-            />
+            <Icon climateDescription={descriptionClimate} className={style.windImage}/>
           </HStack>
           <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>
