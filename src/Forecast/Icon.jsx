@@ -46,49 +46,62 @@ const nightIcons = [
   nevoaNoite,
 ];
 
-
 const Icon = ({ climateDescription, className, hour }) => {
+  const descriptionClimate = climateDescription
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\s/g, "")
+    .replace(/[\u0300-\u036f]/g, "");
+  console.log(descriptionClimate, hour);
+  // descricao do clima se espacos e mnusculo
+  if (hour <= 18) {
+    // se o horario for anets da 18h
 
-    const descriptionClimate = climateDescription.toLowerCase().normalize('NFD').replace(/\s/g, '').replace(/[\u0300-\u036f]/g, "")
-    console.log(descriptionClimate)
-    // descricao do clima se espacos e mnusculo
-    if (hour <= 18) {
-        // se o horario for anets da 18h 
-        
-        let iconEqualDescription = ''
+    let iconEqualDescription = "";
 
-         dayIcons.map((i)=> {
-            if (i.toLowerCase().includes(descriptionClimate)) {
-                        
-                 iconEqualDescription = i
-            } else {
+    dayIcons.map((i) => {
+      if (i.toLowerCase().includes(descriptionClimate)) {
+        return (iconEqualDescription = i);
+      } else {
+        return climateDescription
+          .toLowerCase()
+          .split(" ")
+          .map((el) =>
+            i.toLowerCase().includes(el) ? (iconEqualDescription = i) : null
+          );
+      }
+    });
+    return (
+      <img
+        alt="descriptionIcon"
+        className={className}
+        src={iconEqualDescription}
+      />
+    );
+  } else {
+    let iconEqualDescription = "";
 
-                console.log( climateDescription.toLowerCase().split(' '))
-                climateDescription.toLowerCase().split(' ').map((el)=> i.includes(el) ? iconEqualDescription = i : null)
-            }
-        })
-        return (
-            <img alt="descriptionIcon" className={className} src={iconEqualDescription} />
-        )
-    } else {
+    nightIcons.map((i) => {
+      if (i.toLowerCase().includes(descriptionClimate)) {
+        return (iconEqualDescription = i);
+      } else {
+        return climateDescription
+          .toLowerCase()
+          .split(" ")
+          .map((el) =>
+            i.toLowerCase().includes(el) ? (iconEqualDescription = i) : null
+          );
+      }
+    });
 
-        let iconEqualDescription = ''
-
-        nightIcons.map((i)=> {
-            if (i.toLowerCase().includes(descriptionClimate)) {
-                        
-                 iconEqualDescription = i
-            } else {
-
-                console.log( climateDescription.toLowerCase().split(' '))
-                climateDescription.toLowerCase().split(' ').map((el)=> i.includes(el) ? iconEqualDescription = i : null)
-            }
-        })
-
-        return (
-            <img alt="descriptionIcon" className={className} src={iconEqualDescription} />
-        )
-    }
+    return (
+      <img
+        alt="descriptionIcon"
+        className={className}
+        src={iconEqualDescription}
+      />
+    );
+  }
 };
 
 export default Icon;

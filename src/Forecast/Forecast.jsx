@@ -2,6 +2,7 @@ import { HStack, VStack, Skeleton, Text } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
 import Icon from "./Icon";
+import video from "../media/solar.mp4";
 
 import wind from "../assets/wind.svg";
 import waterDrop from "../assets/raindrop.svg";
@@ -21,7 +22,12 @@ console.log(forecastData)
 
 
   return (
-    <VStack
+    <>
+    
+    <div className={style.overlay}></div>
+      <video className={style.video} src={video} autoPlay loop muted />
+
+      <VStack
       justifyContent="space-between"
       w="100%"
       h="100vh"
@@ -39,7 +45,7 @@ console.log(forecastData)
         <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
           <HStack w="100%" pl="10%">
             <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
-            <Icon hour={21} climateDescription={'chuva de forte intensidade'} className={style.windImage}/>
+            <Icon hour={hour} climateDescription={descriptionClimate} className={style.windImage}/>
           </HStack>
           <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>
@@ -64,6 +70,8 @@ console.log(forecastData)
         </VStack>
       </HStack>
     </VStack>
+    </>
+    
   );
 };
 
