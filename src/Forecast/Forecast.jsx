@@ -30,7 +30,7 @@ console.log(forecastData)
       <VStack
       justifyContent="space-between"
       w="100%"
-      h="100vh"
+      h="100%"
       className={style.animate}
     >
       <HStack w="100%" h={["10vh", "10vh","20vh","20vh","20vh","20vh"]} alignItems="center">
