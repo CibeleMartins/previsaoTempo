@@ -6,6 +6,7 @@ import wind from "../assets/wind.svg";
 import waterDrop from "../assets/raindrop.svg";
 
 const Forecast = ({ forecastData }) => {
+  console.log(forecastData)
 
   const descriptionClimate =
     forecastData.climateNow.toString().charAt(0).toUpperCase() +
