@@ -44,7 +44,7 @@ console.log(forecastData)
       <HStack w="100%" h={['30vh', '40vh', '50vh', '50vh', '50vh', '50vh']} justifyContent="space-between" alignItems="center">
         <VStack w={"50%"} h={['28vh', '35vh','35vh','35vh','35vh','35vh']} justifyContent="flex-end" alignItems="center">
           <HStack w="100%" pl="40px">
-            <Text fontSize={['20px','15px','20px','40px','40px','40px']} className={style.description}>{descriptionClimate} </Text>
+            <Text fontSize={['12px','15px','20px','40px','40px','40px']} className={style.description}>{descriptionClimate} </Text>
             <Icon hour={hour} climateDescription={descriptionClimate} className={style.iconDescription}/>
           </HStack>
           <Text fontSize={['40px', '60px', '80px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
