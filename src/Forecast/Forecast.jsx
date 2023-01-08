@@ -50,7 +50,7 @@ console.log(forecastData)
           <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>
 
-        <VStack
+        {/* <VStack
         pr="5%"
         w="50%"
         h={['20vh', '20vh', '27vh', '27vh', '27vh', '27vh']}
@@ -67,7 +67,7 @@ console.log(forecastData)
             <img alt="wind" className={style.windImage} src={wind}/>
             <Text fontSize={['10px','15px','20px','20px','20px','20px']} id={style.details}>{windSpeed}</Text>
           </HStack>
-        </VStack>
+        </VStack> */}
       </HStack>
     </VStack>
     </>
