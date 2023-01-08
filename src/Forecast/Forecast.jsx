@@ -39,7 +39,7 @@ console.log(forecastData)
         <VStack w={["100%","100%","50%","50%","50%","50%"]} h='27vh' justifyContent="center">
           <HStack w="100%" pl="10%">
             <Text fontSize={['30px','40px','40px','40px','40px','40px']} className={style.description}>{descriptionClimate}</Text>
-            <Icon hour={hour} climateDescription={descriptionClimate} className={style.windImage}/>
+            <Icon hour={21} climateDescription={'chuva de forte intensidade'} className={style.windImage}/>
           </HStack>
           <Text fontSize={['40px', '80px', '100px','100px','100px','100px']} className={style.temperature}>{currentTemp}</Text>
         </VStack>
