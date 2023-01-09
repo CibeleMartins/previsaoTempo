@@ -3,6 +3,7 @@ import {
   VStack,
   Skeleton,
   Text,
+  Box,
   SkeletonCircle,
   SkeletonText,
 } from "@chakra-ui/react";
@@ -49,13 +50,18 @@ const Forecast = ({ forecastData, locationUser }) => {
           >
             Clima |
           </Text>
-          {forecastData.region.length > 0 ?  <Text
+          {forecastData.region.length > 0 ? (
+            <Text
               fontSize={["20px", "30px", "37px", "37px", "37px", "37px"]}
               className={style.region}
             >
-            
               {forecastData.region}
-            </Text> : <Skeleton>{'Carregando...'}</Skeleton> }
+            </Text>
+          ) : (
+            <Skeleton h={4} borderRadius={10}>
+              {"Carregando..."}
+            </Skeleton>
+          )}
         </HStack>
 
         <HStack
@@ -68,28 +74,55 @@ const Forecast = ({ forecastData, locationUser }) => {
             w={"50%"}
             h={["28vh", "35vh", "35vh", "35vh", "35vh", "35vh"]}
             justifyContent="flex-end"
-            alignItems="center"
+            alignItems={currentTemp === 0 ? "" : "center"}
           >
             <HStack w="100%" pl="40px">
-                <Text
-                  fontSize={["12px", "15px", "20px", "40px", "40px", "40px"]}
-                  className={style.description}
-                >
-                  {descriptionClimate}
-                </Text>
-                <Icon
-                  hour={hour}
-                  climateDescription={descriptionClimate}
-                  className={style.iconDescription}
-                />
+              {descriptionClimate.length > 0 ? (
+                <>
+                  <Text
+                    fontSize={["12px", "15px", "20px", "40px", "40px", "40px"]}
+                    className={style.description}
+                  >
+                    {descriptionClimate}
+                  </Text>{" "}
+                  <Icon
+                    hour={hour}
+                    climateDescription={descriptionClimate}
+                    className={style.iconDescription}
+                  />
+                </>
+              ) : (
+                <>
+                  <Skeleton borderRadius={10} h={4} w="50%">
+                    "Carregando..."
+                  </Skeleton>{" "}
+                  <SkeletonCircle w="10%" h={10}></SkeletonCircle>
+                </>
+              )}
             </HStack>
-
-            <Text
-              fontSize={["40px", "60px", "80px", "100px", "100px", "100px"]}
-              className={style.temperature}
-            >
-              {currentTemp + " °C"}
-            </Text>
+            {currentTemp > 0 ? (
+              <Text
+                fontSize={["40px", "60px", "80px", "100px", "100px", "100px"]}
+                className={style.temperature}
+              >
+                {currentTemp + " °C"}
+              </Text>
+            ) : (
+              <HStack
+                h={[150, 200, 'auto', 'auto', 'auto', 'auto']}
+                width={[180, 200, 300, 300, 300, 300, 300]}
+                alignItems="center"
+                justifyContent="center"
+              >
+                <SkeletonCircle
+                  h={[100, 90, 120, 120, 120, 120, 120]}
+                  className={style.temperature}
+                  w={["60%", "40%","40%","40%","40%","40%"]}
+                >
+                  {"Carregando..."}
+                </SkeletonCircle>
+              </HStack>
+            )}
           </VStack>
 
           <VStack
