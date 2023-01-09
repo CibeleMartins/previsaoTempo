@@ -49,21 +49,13 @@ const Forecast = ({ forecastData, locationUser }) => {
           >
             Clima |
           </Text>
-
-          {/* <Skeleton
-            bg="transparent"
-            color="white"
-            fadeDuration={1}
-            h={4}
-            isLoaded={locationUser}
-          > */}
-            <Text
+          {forecastData.region.length > 0 ?  <Text
               fontSize={["20px", "30px", "37px", "37px", "37px", "37px"]}
               className={style.region}
             >
-              {forecastData.region || "Carregando..."}
-            </Text>
-          {/* </Skeleton> */}
+            
+              {forecastData.region}
+            </Text> : <Skeleton>{'Carregando...'}</Skeleton> }
         </HStack>
 
         <HStack
@@ -79,39 +71,24 @@ const Forecast = ({ forecastData, locationUser }) => {
             alignItems="center"
           >
             <HStack w="100%" pl="40px">
-              <Skeleton
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                h={4}
-                isLoaded={locationUser}
-              >
                 <Text
                   fontSize={["12px", "15px", "20px", "40px", "40px", "40px"]}
                   className={style.description}
                 >
-                  {descriptionClimate || "Carregando..."}{" "}
+                  {descriptionClimate}
                 </Text>
-              </Skeleton>
-              <SkeletonCircle
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                isLoaded={locationUser}
-              >
                 <Icon
                   hour={hour}
                   climateDescription={descriptionClimate}
                   className={style.iconDescription}
                 />
-              </SkeletonCircle>
             </HStack>
 
             <Text
               fontSize={["40px", "60px", "80px", "100px", "100px", "100px"]}
               className={style.temperature}
             >
-              {currentTemp + " °C" || "Carregando..."}
+              {currentTemp + " °C"}
             </Text>
           </VStack>
 
@@ -138,56 +115,26 @@ const Forecast = ({ forecastData, locationUser }) => {
             alignContent="center"
           >
             <HStack w="25%">
-            <SkeletonCircle
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                isLoaded={locationUser}
-              >
               <img
                 alt="humidity"
                 className={style.humidityImage}
                 src={waterDrop}
               />
-              </SkeletonCircle>
-              <Skeleton
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                h={4}
-                isLoaded={locationUser}
-              >
               <Text
                 fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
                 id={style.details}
               >
                 {humidity}
               </Text>
-              </Skeleton>
             </HStack>
             <HStack w="25%">
-            <SkeletonCircle
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                isLoaded={locationUser}
-              >
               <img alt="wind" className={style.windImage} src={wind} />
-              </SkeletonCircle>
-              <Skeleton
-                bg="transparent"
-                color="white"
-                fadeDuration={1}
-                h={4}
-                isLoaded={locationUser}
-              >
               <Text
                 fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
                 id={style.details}
               >
                 {windSpeed}
               </Text>
-              </Skeleton>
             </HStack>
           </VStack>
         </HStack>
