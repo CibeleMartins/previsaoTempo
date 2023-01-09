@@ -3,10 +3,7 @@ import {
   VStack,
   Skeleton,
   Text,
-  Box,
   SkeletonCircle,
-  SkeletonText,
-  useBreakpoint,
 } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
@@ -22,22 +19,11 @@ const Forecast = ({ forecastData, locationUser }) => {
   const descriptionClimate =
     forecastData.climateNow.toString().charAt(0).toUpperCase() +
     forecastData.climateNow.toString().slice(1);
-  const currentTemp = Math.round(forecastData.currentTemperature);
-  // const icon = `http://openweathermap.org/img/wn/${forecastData.icon[0]}@2x.png`;
+  const currentTemp = Math.round(forecastData.currentTemperature);;
   const humidity = forecastData.humidity + " %";
   const windSpeed = forecastData.windSpeed + " Km/h";
   const hour = new Date().getHours();
 
-  // console.log(humidity, typeof humidity, humidity.length);
-
-  const brakpointDetails = useBreakpoint({
-    base: "26vh",
-    sm: "27vh",
-    md: "30vh",
-    lg: "27vh",
-    xl: "27vh",
-    "2xl": "27vh",
-  });
 
   return (
     <>
@@ -161,7 +147,7 @@ const Forecast = ({ forecastData, locationUser }) => {
             w="50%"
             h={["27vh", "27vh", "30vh", "27vh", "27vh", "27vh"]}
             justifyContent={humidity.length > 3 ? "flex-end" : "center"}
-            alignItems={humidity.length > 3 ? "center" : "flex-end"}
+            alignItems={humidity.length > 3 ? "flex-end" : "flex-end"}
             alignContent="center"
           >
             <HStack

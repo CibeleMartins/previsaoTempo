@@ -3,6 +3,7 @@ import { Center, Text } from "@chakra-ui/react";
 import Forecast from "../src/Forecast/Forecast";
 import Loading from "./Loading/Loading";
 import { useState, useEffect } from "react";
+import FeedbackLocation from "./FeedbackLocation/FeedbackLocation";
 
 function App() {
   const [location, setLocation] = useState();
@@ -50,7 +51,6 @@ function App() {
     navigator.geolocation.getCurrentPosition((position) => {
       getWeather(position.coords.latitude, position.coords.longitude);
       setLocation(true);
-  
     });
 
     setInterval(() => {
