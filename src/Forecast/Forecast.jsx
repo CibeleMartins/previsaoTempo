@@ -6,6 +6,7 @@ import {
   Box,
   SkeletonCircle,
   SkeletonText,
+  useBreakpoint,
 } from "@chakra-ui/react";
 
 import style from "./Forecast.module.css";
@@ -27,7 +28,16 @@ const Forecast = ({ forecastData, locationUser }) => {
   const windSpeed = forecastData.windSpeed + " Km/h";
   const hour = new Date().getHours();
 
-  console.log(humidity, typeof humidity, humidity.length);
+  // console.log(humidity, typeof humidity, humidity.length);
+
+  const brakpointDetails = useBreakpoint({
+    base: "26vh",
+    sm: "27vh",
+    md: "30vh",
+    lg: "27vh",
+    xl: "27vh",
+    "2xl": "27vh",
+  });
 
   return (
     <>
@@ -101,13 +111,18 @@ const Forecast = ({ forecastData, locationUser }) => {
               ) : (
                 <>
                   <Skeleton
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
                     borderRadius={10}
                     h={4}
                     w={["60%", "64%", "60%", "50%", "40%", "40%"]}
                   >
-                    "Carregando..."
                   </Skeleton>{" "}
                   <SkeletonCircle
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
                     w={["35px", "40px", "13%", "10%", "8%", "8%"]}
                     h={[8, 10, 12, 12, 12, 12]}
                   ></SkeletonCircle>
@@ -129,11 +144,13 @@ const Forecast = ({ forecastData, locationUser }) => {
                 justifyContent="center"
               >
                 <SkeletonCircle
+                  bg="green.500"
+                  color="white"
+                  fadeDuration={4}
                   h={[95, 95, 120, 120, 120, 120, 120]}
                   className={style.temperature}
                   w={["55%", "50%", "40%", "40%", "40%", "40%"]}
                 >
-                  {"Carregando..."}
                 </SkeletonCircle>
               </HStack>
             )}
@@ -143,25 +160,14 @@ const Forecast = ({ forecastData, locationUser }) => {
             pr={["40px", "100px", "80px", "40px", "40px", "40px"]}
             w="50%"
             h={["27vh", "27vh", "30vh", "27vh", "27vh", "27vh"]}
-            justifyContent={[
-              "flex-end",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-            ]}
-            alignItems={[
-              "center",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-              "flex-end",
-            ]}
+            justifyContent={humidity.length > 3 ? "flex-end" : "center"}
+            alignItems={humidity.length > 3 ? "center" : "flex-end"}
             alignContent="center"
           >
-            <HStack w={["50%", "60%", "35%", "25%", "25%", "25%"]}>
+            <HStack
+              w={["50%", "60%", "35%", "25%", "25%", "25%"]}
+              mt={humidity.length > 3 ? "0px" : "20%"}
+            >
               {humidity.length > 3 ? (
                 <>
                   <img
@@ -179,10 +185,16 @@ const Forecast = ({ forecastData, locationUser }) => {
               ) : (
                 <>
                   <SkeletonCircle
-                    w={[6, "30px", 8, 8, 8, "10px"]}
-                    h={[6, "30px", 8, 8, 8, "10px"]}
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
+                    w={[10, "30px", 8, 8, 8, "10px"]}
+                    h={[5, "30px", 8, 8, 8, "10px"]}
                   ></SkeletonCircle>
                   <Skeleton
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
                     borderRadius={10}
                     h={4}
                     w={["80px", "80px", "80px", "80px", "80px", "80px"]}
@@ -203,8 +215,17 @@ const Forecast = ({ forecastData, locationUser }) => {
                 </>
               ) : (
                 <>
-                  <SkeletonCircle></SkeletonCircle>{" "}
+                  <SkeletonCircle
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
+                    h={[5, "30px", 8, 8, 8, "10px"]}
+                    w={[10, "30px", 8, 8, 8, "10px"]}
+                  ></SkeletonCircle>{" "}
                   <Skeleton
+                    bg="green.500"
+                    color="white"
+                    fadeDuration={4}
                     borderRadius={10}
                     h={4}
                     w={["80px", "80px", "80px", "80px", "80px", "80px"]}
