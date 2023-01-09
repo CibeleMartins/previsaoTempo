@@ -96,7 +96,7 @@ const Forecast = ({ forecastData, locationUser }) => {
                   <Skeleton borderRadius={10} h={4} w={["50%","64%","60%","50%","40%","40%"]}>
                     "Carregando..."
                   </Skeleton>{" "}
-                  <SkeletonCircle w="10%" h={10}></SkeletonCircle>
+                  <SkeletonCircle w="8%" h={12}></SkeletonCircle>
                 </>
               )}
             </HStack>
