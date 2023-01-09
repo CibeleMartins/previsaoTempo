@@ -11,10 +11,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { useEffect } from "react";
 
-function FeedbackLocation() {
-
+function FeedbackLocation({ getWeatherFeedback }) {
   const OverlayTwo = () => (
     <ModalOverlay
       bg="none"
@@ -24,11 +23,17 @@ function FeedbackLocation() {
     />
   );
 
+  const { isOpen, onClose, onOpen } = useDisclosure()
+
+  useEffect(()=> {
+    onOpen()
+  }, [])
+
   return (
     <>
 
-      <Modal isCentered isOpen={true} >
-       <OverlayTwo/>
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        <OverlayTwo />
         <ModalContent>
           <ModalHeader>Erro</ModalHeader>
           <ModalCloseButton />
@@ -38,7 +43,10 @@ function FeedbackLocation() {
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button>Close</Button>
+            <Button
+              onClick={()=> onClose()}>
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
