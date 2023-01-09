@@ -58,9 +58,14 @@ const Forecast = ({ forecastData, locationUser }) => {
               {forecastData.region}
             </Text>
           ) : (
-            <Skeleton h={4} borderRadius={10}>
-              {"Carregando..."}
-            </Skeleton>
+            <Skeleton
+              w={['30%', '20%', '18%', "10%", '10%', '10%']}
+              bg="green.500"
+              color="white"
+              fadeDuration={4}
+              h={4}
+              borderRadius={10}
+            ></Skeleton>
           )}
         </HStack>
 
@@ -93,10 +98,14 @@ const Forecast = ({ forecastData, locationUser }) => {
                 </>
               ) : (
                 <>
-                  <Skeleton borderRadius={10} h={4} w={["50%","64%","60%","50%","40%","40%"]}>
+                  <Skeleton
+                    borderRadius={10}
+                    h={4}
+                    w={["60%", "64%", "60%", "50%", "40%", "40%"]}
+                  >
                     "Carregando..."
                   </Skeleton>{" "}
-                  <SkeletonCircle w="8%" h={12}></SkeletonCircle>
+                  <SkeletonCircle w={["35px","40px","13%","10%","8%","8%"]} h={[8,10,12,12,12,12]}></SkeletonCircle>
                 </>
               )}
             </HStack>
@@ -109,15 +118,15 @@ const Forecast = ({ forecastData, locationUser }) => {
               </Text>
             ) : (
               <HStack
-                h={[150, 100, 'auto', 'auto', 'auto', 'auto']}
+                h={[150, 100, "auto", "auto", "auto", "auto"]}
                 width={[180, 200, 300, 300, 300, 300, 300]}
                 alignItems="center"
                 justifyContent="center"
               >
                 <SkeletonCircle
-                  h={[100, 90, 120, 120, 120, 120, 120]}
+                  h={[95, 90, 120, 120, 120, 120, 120]}
                   className={style.temperature}
-                  w={["60%", "40%","40%","40%","40%","40%"]}
+                  w={["55%", "40%", "40%", "40%", "40%", "40%"]}
                 >
                   {"Carregando..."}
                 </SkeletonCircle>
