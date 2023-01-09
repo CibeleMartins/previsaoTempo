@@ -27,6 +27,8 @@ const Forecast = ({ forecastData, locationUser }) => {
   const windSpeed = forecastData.windSpeed + " Km/h";
   const hour = new Date().getHours();
 
+  console.log(humidity, typeof humidity, humidity.length);
+
   return (
     <>
       <div className={style.overlay}></div>
@@ -59,7 +61,7 @@ const Forecast = ({ forecastData, locationUser }) => {
             </Text>
           ) : (
             <Skeleton
-              w={['30%', '20%', '18%', "10%", '10%', '10%']}
+              w={["30%", "20%", "18%", "10%", "10%", "10%"]}
               bg="green.500"
               color="white"
               fadeDuration={4}
@@ -105,7 +107,10 @@ const Forecast = ({ forecastData, locationUser }) => {
                   >
                     "Carregando..."
                   </Skeleton>{" "}
-                  <SkeletonCircle w={["35px","40px","13%","10%","8%","8%"]} h={[8,10,12,12,12,12]}></SkeletonCircle>
+                  <SkeletonCircle
+                    w={["35px", "40px", "13%", "10%", "8%", "8%"]}
+                    h={[8, 10, 12, 12, 12, 12]}
+                  ></SkeletonCircle>
                 </>
               )}
             </HStack>
@@ -124,9 +129,9 @@ const Forecast = ({ forecastData, locationUser }) => {
                 justifyContent="center"
               >
                 <SkeletonCircle
-                  h={[95, 90, 120, 120, 120, 120, 120]}
+                  h={[95, 95, 120, 120, 120, 120, 120]}
                   className={style.temperature}
-                  w={["55%", "40%", "40%", "40%", "40%", "40%"]}
+                  w={["55%", "50%", "40%", "40%", "40%", "40%"]}
                 >
                   {"Carregando..."}
                 </SkeletonCircle>
@@ -156,27 +161,56 @@ const Forecast = ({ forecastData, locationUser }) => {
             ]}
             alignContent="center"
           >
-            <HStack w="25%">
-              <img
-                alt="humidity"
-                className={style.humidityImage}
-                src={waterDrop}
-              />
-              <Text
-                fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
-                id={style.details}
-              >
-                {humidity}
-              </Text>
+            <HStack w={["50%", "60%", "35%", "25%", "25%", "25%"]}>
+              {humidity.length > 3 ? (
+                <>
+                  <img
+                    alt="humidity"
+                    className={style.humidityImage}
+                    src={waterDrop}
+                  />
+                  <Text
+                    fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
+                    id={style.details}
+                  >
+                    {humidity}
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <SkeletonCircle
+                    w={[6, "30px", 8, 8, 8, "10px"]}
+                    h={[6, "30px", 8, 8, 8, "10px"]}
+                  ></SkeletonCircle>
+                  <Skeleton
+                    borderRadius={10}
+                    h={4}
+                    w={["80px", "80px", "80px", "80px", "80px", "80px"]}
+                  ></Skeleton>
+                </>
+              )}
             </HStack>
-            <HStack w="25%">
-              <img alt="wind" className={style.windImage} src={wind} />
-              <Text
-                fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
-                id={style.details}
-              >
-                {windSpeed}
-              </Text>
+            <HStack w={["50%", "60%", "35%", "25%", "25%", "25%"]}>
+              {windSpeed.length > 6 ? (
+                <>
+                  <img alt="wind" className={style.windImage} src={wind} />
+                  <Text
+                    fontSize={["100%", "15px", "20px", "20px", "20px", "20px"]}
+                    id={style.details}
+                  >
+                    {windSpeed}
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <SkeletonCircle></SkeletonCircle>{" "}
+                  <Skeleton
+                    borderRadius={10}
+                    h={4}
+                    w={["80px", "80px", "80px", "80px", "80px", "80px"]}
+                  ></Skeleton>
+                </>
+              )}
             </HStack>
           </VStack>
         </HStack>
