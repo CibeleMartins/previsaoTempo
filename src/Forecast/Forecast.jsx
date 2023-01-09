@@ -93,7 +93,7 @@ const Forecast = ({ forecastData, locationUser }) => {
                 </>
               ) : (
                 <>
-                  <Skeleton borderRadius={10} h={4} w="50%">
+                  <Skeleton borderRadius={10} h={4} w={["50%","64%","60%","50%","40%","40%"]}>
                     "Carregando..."
                   </Skeleton>{" "}
                   <SkeletonCircle w="10%" h={10}></SkeletonCircle>
@@ -109,7 +109,7 @@ const Forecast = ({ forecastData, locationUser }) => {
               </Text>
             ) : (
               <HStack
-                h={[150, 200, 'auto', 'auto', 'auto', 'auto']}
+                h={[150, 100, 'auto', 'auto', 'auto', 'auto']}
                 width={[180, 200, 300, 300, 300, 300, 300]}
                 alignItems="center"
                 justifyContent="center"
