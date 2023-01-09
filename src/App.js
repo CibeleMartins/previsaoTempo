@@ -60,21 +60,22 @@ function App() {
 
   if (isLoading) {
     return <Loading />;
-  } else if (location) {
-    return (
-      <div className="App">
-        <Forecast forecastData={data} />
-      </div>
-    );
   } else {
     return (
-      <Center w="100%" h="100vh" className="animateFeedback">
-        <Text letterSpacing={2} zIndex={90} color="antiquewhite" fontSize={30} textAlign="center">
-          Por favor, permita que o navegador acesse a sua localização atual{" "}
-        </Text>
-      </Center>
+      <div className="App">
+        <Forecast locationUser={location} forecastData={data} />
+      </div>
     );
   }
+  // } else {
+  //   return (
+  //     <Center w="100%" h="100vh" className="animateFeedback">
+  //       <Text letterSpacing={2} zIndex={90} color="antiquewhite" fontSize={30} textAlign="center">
+  //         Por favor, permita que o navegador acesse a sua localização atual{" "}
+  //       </Text>
+  //     </Center>
+  //   );
+  // }
 }
 
 export default App;
