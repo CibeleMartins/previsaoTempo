@@ -56,14 +56,14 @@ function App() {
     setInterval(() => {
       setIsLoading(false);
     }, 5000);
-  }, []);
+  }, []); 
 
   if (isLoading) {
     return <Loading />;
   } else {
     return (
       <div className="App">
-        <Forecast getWeatherForecast={getWeather} locationUser={location} forecastData={data} />
+        <Forecast locationUser={location} forecastData={data} />
       </div>
     );
   }

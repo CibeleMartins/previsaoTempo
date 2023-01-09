@@ -15,7 +15,7 @@ import video from "../media/solar.mp4";
 import wind from "../assets/wind.svg";
 import waterDrop from "../assets/raindrop.svg";
 
-const Forecast = ({ forecastData, locationUser, getWeatherForecast }) => {
+const Forecast = ({ forecastData, locationUser }) => {
   console.log(forecastData);
 
   const descriptionClimate =
@@ -31,7 +31,7 @@ const Forecast = ({ forecastData, locationUser, getWeatherForecast }) => {
     <>
       <div className={style.overlay}></div>
       <video className={style.video} src={video} autoPlay loop muted />
-      {locationUser !== false && <FeedbackLocation getWeatherFeedback={getWeatherForecast}/>}
+      {locationUser !== true ? <FeedbackLocation/> : null}
       <VStack
         justifyContent="space-between"
         w="100%"
@@ -150,6 +150,7 @@ const Forecast = ({ forecastData, locationUser, getWeatherForecast }) => {
             h={["27vh", "27vh", "30vh", "27vh", "27vh", "27vh"]}
             justifyContent={humidity.length > 3 ? "flex-end" : "center"}
             alignItems={humidity.length > 3 ? "flex-end" : "flex-end"}
+            spacing={humidity.length > 3 ? 10 : 5}
             alignContent="center"
           >
             <HStack

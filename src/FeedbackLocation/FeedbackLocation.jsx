@@ -13,7 +13,7 @@ import {
 
 import { useEffect } from "react";
 
-function FeedbackLocation({ getWeatherFeedback }) {
+function FeedbackLocation() {
   const OverlayTwo = () => (
     <ModalOverlay
       bg="none"
@@ -34,19 +34,14 @@ function FeedbackLocation({ getWeatherFeedback }) {
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <OverlayTwo />
-        <ModalContent>
+        <ModalContent bg="transparent" w="50%">
           <ModalHeader>Erro</ModalHeader>
-          <ModalCloseButton />
           <ModalBody>
             <Text>
-              Permita que o navegador acesse sua localização atual por favor
+              Permita que o navegador acesse sua localização atual e recarregue a página por favor.
             </Text>
           </ModalBody>
           <ModalFooter>
-            <Button
-              onClick={()=> onClose()}>
-              Close
-            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
